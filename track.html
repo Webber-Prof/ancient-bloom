@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Track your order — Ancient Bloom</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Instrument+Sans:wght@400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<header class="mast">
+  <div class="mast__in">
+    <a class="mark" href="index.html">
+      <span class="mark__name">Ancient Bloom</span>
+      <span class="mark__no">est. small kitchen</span>
+    </a>
+    <a class="btn btn--ghost" href="index.html">Back to shop</a>
+  </div>
+</header>
+
+<main class="sec">
+  <div class="wrap track">
+    <div class="sec__head" style="text-align:center;margin-inline:auto">
+      <span class="label">Order status</span>
+      <h2>Where is my jar?</h2>
+      <p style="margin-inline:auto">Enter the order number we sent you — it looks like AB-K3F9QX — and the phone number you ordered with.</p>
+    </div>
+
+    <div class="track__card">
+      <div class="field">
+        <label for="t-id">Order number</label>
+        <input id="t-id" placeholder="AB-XXXXXX" autocapitalize="characters">
+      </div>
+      <div class="field">
+        <label for="t-phone">Phone used on the order</label>
+        <input id="t-phone" inputmode="tel">
+      </div>
+      <button class="btn btn--full btn--wide" id="lookup">Check status</button>
+      <div id="result"></div>
+      <p class="note" id="fallback"></p>
+    </div>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap"><div class="foot__fine">
+    <span>© <span id="yr"></span> Ancient Bloom</span>
+    <span>Made in India</span>
+  </div></div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+let SET = {};
+
+function parseCSV(t){
+  t = t.replace(/^\uFEFF/,'');
+  const rows=[]; let row=[],f='',q=false;
+  for(let i=0;i<t.length;i++){
+    const c=t[i];
+    if(q){ if(c==='"'){ if(t[i+1]==='"'){f+='"';i++;} else q=false; } else f+=c; }
+    else if(c==='"') q=true;
+    else if(c===','){ row.push(f); f=''; }
+    else if(c==='\n'){ row.push(f); rows.push(row); row=[]; f=''; }
+    else if(c!=='\r') f+=c;
+  }
+  if(f.length||row.length){ row.push(f); rows.push(row); }
+  return rows.filter(r=>r.some(v=>v.trim()!==''));
+}
+
+fetch('data/settings.csv?v='+Date.now())
+  .then(r=>r.text())
+  .then(t=>{
+    parseCSV(t).slice(1).forEach(r=>SET[(r[0]||'').trim()]=(r[1]||'').trim());
+    document.getElementById('fallback').innerHTML =
+      'Can\'t find it? Message us on <a href="https://wa.me/'+SET.whatsapp+
+      '" target="_blank" rel="noopener">WhatsApp</a> with your order number.';
+  })
+  .catch(()=>{});
+
+/* JSONP — avoids every cross-origin problem with Apps Script */
+function jsonp(url){
+  return new Promise((resolve,reject)=>{
+    const cb = 'ab_cb_' + Math.random().toString(36).slice(2);
+    const s = document.createElement('script');
+    const timer = setTimeout(()=>{ cleanup(); reject(new Error('timeout')); }, 12000);
+    function cleanup(){ clearTimeout(timer); delete window[cb]; s.remove(); }
+    window[cb] = d => { cleanup(); resolve(d); };
+    s.onerror = () => { cleanup(); reject(new Error('network')); };
+    s.src = url + (url.includes('?') ? '&' : '?') + 'callback=' + cb;
+    document.body.appendChild(s);
+  });
+}
+
+document.getElementById('lookup').onclick = async () => {
+  const id = document.getElementById('t-id').value.trim().toUpperCase();
+  const ph = document.getElementById('t-phone').value.trim();
+  const box = document.getElementById('result');
+  const btn = document.getElementById('lookup');
+
+  if(!id || !ph){ box.innerHTML = '<p class="err">Both fields are needed.</p>'; return; }
+  if(!SET.orders_url){
+    box.innerHTML = '<p class="err">Order lookup is not switched on yet. Please message us on WhatsApp.</p>';
+    return;
+  }
+
+  btn.disabled = true; btn.textContent = 'Checking…';
+  box.innerHTML = '';
+
+  try{
+    const d = await jsonp(SET.orders_url + '?id=' + encodeURIComponent(id) + '&phone=' + encodeURIComponent(ph));
+    if(!d || !d.found){
+      box.innerHTML = '<p class="err">No order matches that number and phone. Check both, or message us.</p>';
+    } else {
+      box.innerHTML = `
+        <div class="status">
+          <p><span class="pill">${d.status || 'New'}</span></p>
+          <dl>
+            <div><dt>Order</dt><dd>${d.id}</dd></div>
+            <div><dt>Placed</dt><dd>${d.placed || '—'}</dd></div>
+            <div><dt>Items</dt><dd style="white-space:pre-line">${d.items || '—'}</dd></div>
+            <div><dt>Total</dt><dd>${d.total || '—'}</dd></div>
+            ${d.tracking ? `<div><dt>Tracking</dt><dd>${d.tracking}</dd></div>` : ''}
+          </dl>
+        </div>`;
+    }
+  }catch(e){
+    box.innerHTML = '<p class="err">Could not reach the order system. Please message us on WhatsApp.</p>';
+  }
+
+  btn.disabled = false; btn.textContent = 'Check status';
+};
+</script>
+</body>
+</html>

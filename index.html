@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ancient Bloom</title>
+<meta name="description" content="Handcrafted beauty, cosmetics and personal care made with organic and natural ingredients. Poured by hand in small batches. Ships worldwide.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Instrument+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+
+<body>
+
+<header class="mast">
+  <div class="mast__in">
+    <a class="mark" href="#top">
+      <span class="mark__name" data-s="brand_name">Ancient Bloom</span>
+      <span class="mark__no">est. small kitchen</span>
+    </a>
+    <nav class="mast__nav">
+      <a href="#shelf">Shop</a>
+      <a href="#made">How it's made</a>
+      <a href="#ship">Shipping</a>
+      <a href="#faq">Questions</a>
+      <a href="track.html">Track order</a>
+    </nav>
+    <button class="btn cartbtn" id="openCart">
+      Bag <b id="cartCount" style="display:none">0</b>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap">
+    <div class="rv">
+      <span class="label" data-s="eyebrow"></span>
+      <h1 data-s="tagline"></h1>
+      <p class="hero__lede" data-s="intro"></p>
+      <p class="hero__lede" data-s="intro_2"></p>
+      <div class="hero__acts">
+        <a class="btn btn--wide" href="#shelf">Shop the batch</a>
+        <a class="btn btn--ghost btn--wide" href="#made">How it's made</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="band rv">
+    <dl class="band__in">
+      <div class="band__c band__no"><dt>Batch</dt><dd data-s="batch_number"></dd></div>
+      <div class="band__c"><dt>Poured</dt><dd data-s="batch_poured"></dd></div>
+      <div class="band__c"><dt>Best before</dt><dd data-s="batch_best_before"></dd></div>
+      <div class="band__sp"></div>
+      <div class="band__c"><dt>Jars remaining</dt><dd><div class="tally" id="tally"></div></dd></div>
+      <div class="band__c band__left"><dt>&nbsp;</dt><dd id="tallyNote"></dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ══ SHOP — everything below comes from data/products.csv ══ -->
+<section class="sec" id="shelf-sec">
+  <div class="wrap">
+    <div class="sec__head rv">
+      <span class="label">The shelf</span>
+      <h2>Made fresh, in batches small enough to count.</h2>
+      <p>We'd rather make a few things properly than thirty things adequately. Everything here is made to be used up, not displayed.</p>
+    </div>
+    <div class="filters rv" id="filters"></div>
+    <div class="shelf rv" id="shelf"></div>
+  </div>
+</section>
+
+<section class="sec sec--paper" id="made">
+  <div class="wrap">
+    <div class="sec__head rv">
+      <span class="label">Method</span>
+      <h2>Four weeks from field to jar. Mostly waiting.</h2>
+      <p>Nothing here is complicated. It's just slow, and slow is the part most brands skip.</p>
+    </div>
+    <div class="steps rv">
+      <div class="step"><span class="step__no">01 — Sourced</span><h3>Bought small</h3>
+        <p>Certified organic where certification exists, farm-direct or wild-harvested where it doesn't. Bought in quantities we'll use within the season.</p></div>
+      <div class="step"><span class="step__no">02 — Infused</span><h3>Six weeks, no heat</h3>
+        <p>Botanicals sit in oil in glass, away from light, turned by hand every few days. Heat would do it in an afternoon and take the good part with it.</p></div>
+      <div class="step"><span class="step__no">03 — Poured</span><h3>Forty at a time</h3>
+        <p>Filtered twice, poured into sterilised amber glass, capped and weighed. About forty jars a batch — the most two people can do in a day without rushing.</p></div>
+      <div class="step"><span class="step__no">04 — Rested</span><h3>Fourteen days</h3>
+        <p>Every batch sits a fortnight before it's sold, so the scent settles and anything that was going to separate has. Then it's labelled with the pour date.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec__head rv">
+      <span class="label">The label, in plain words</span>
+      <h2>What goes in, and what never does.</h2>
+      <p>Full ingredient lists are printed on every jar and posted with each batch. Nothing hides behind "fragrance" or "proprietary blend".</p>
+    </div>
+    <div class="split rv">
+      <div class="col col--in"><h3>In</h3><ul>
+        <li>Cold-pressed carrier oils, bought small and used within the season</li>
+        <li>Whole botanicals — dried, not extracted</li>
+        <li>Unrefined butters: kokum, mango, shea</li>
+        <li>Essential oils and absolutes, at low percentages</li>
+        <li>Amber glass and aluminium — refillable, recyclable</li>
+      </ul></div>
+      <div class="col col--out"><h3>Out</h3><ul>
+        <li>Synthetic fragrance and "parfum"</li>
+        <li>Parabens, phthalates, sulphates</li>
+        <li>Mineral oil, silicones, petrolatum</li>
+        <li>Synthetic colour</li>
+        <li>Anything tested on animals, at any stage</li>
+        <li>Claims we can't back up on a label</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--paper" id="ship">
+  <div class="wrap">
+    <div class="sec__head rv">
+      <span class="label">Getting it to you</span>
+      <h2>We ship worldwide, packed for the weather.</h2>
+      <p>Orders go out within two working days of payment clearing. Everything travels in glass, wrapped in shredded paper, in a box we've dropped from waist height to test.</p>
+    </div>
+    <div class="ship rv">
+      <div class="ship__cell"><b>Within India</b><span>Tracked courier</span><p data-s="ship_india"></p></div>
+      <div class="ship__cell"><b>Worldwide</b><span>Tracked post</span><p data-s="ship_world"></p></div>
+      <div class="ship__cell"><b>Summer</b><span>A word of warning</span><p data-s="ship_note"></p></div>
+      <div class="ship__cell"><b>Refills</b><span>Bring the jar back</span>
+        <p>Post the empty amber glass back to us — clean, no lid needed — and take ₹150 off your next order.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="faq">
+  <div class="wrap">
+    <div class="sec__head rv"><span class="label">Questions</span><h2>The ones we're asked most.</h2></div>
+    <div class="faq rv">
+      <details><summary>Why does the colour change from batch to batch?</summary>
+        <p>Because the plants do. Turmeric grown in a wet year is paler; rose petals dried in March are deeper than the ones dried in July. We don't correct for it with colourant, so the jar you get in October won't exactly match the one from April. The formula is identical.</p></details>
+      <details><summary>How long does it keep?</summary>
+        <p>Six months from the pour date printed on the base, kept out of direct sun with the lid on. If anything ever smells sharp or off, stop using it and tell us — we'll replace it.</p></details>
+      <details><summary>Should I patch test?</summary>
+        <p>Yes, always, with any new product. A little on the inside of your forearm, left alone for a day. Natural doesn't mean non-reactive — plenty of people react to sandalwood, nut oils or citrus. Full ingredient lists are on every jar so you can check before you buy.</p></details>
+      <details><summary>Is it safe during pregnancy?</summary>
+        <p>Some of the botanicals we use aren't generally recommended in pregnancy, and it depends on the product. Message us and we'll send the full ingredient list — then run it past your doctor or midwife rather than us. We're not qualified to make that call for you.</p></details>
+      <details><summary>Is everything certified organic?</summary>
+        <p>Not all of it, and we'd rather say so. Where a certified organic supplier exists at a scale we can buy from, we use them. Where they don't, we buy direct from growers we've visited. "Organic and natural" on our label means that, not a certificate we've bought.</p></details>
+      <details><summary>Can I order in bulk, or for a wedding?</summary>
+        <p>Yes. Favours, hampers and gifting are a good chunk of what we do. Give us four weeks' notice — a batch takes that long — and tell us the quantity and budget. We can do custom labels and unscented versions.</p></details>
+      <details><summary>Do you take returns?</summary>
+        <p>On unopened jars, within seven days, yes — you pay return postage. Once a jar's been opened we can't resell it, so we don't take it back. If something arrived broken or wrong, send us a photo and we'll fix it, no argument.</p></details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__grid">
+      <div>
+        <div class="foot__brand" data-s="brand_name"></div>
+        <p style="color:var(--ink-soft);font-size:.93rem;max-width:34ch" data-s="intro"></p>
+      </div>
+      <div><h4>Shop</h4><ul>
+        <li><a href="#shelf-sec">The shelf</a></li>
+        <li><a href="track.html">Track an order</a></li>
+        <li><a href="#ship">Shipping</a></li>
+        <li><a href="#faq">Questions</a></li>
+      </ul></div>
+      <div><h4>Find us</h4><ul>
+        <li><a data-ig target="_blank" rel="noopener"></a></li>
+        <li><a data-mail></a></li>
+      </ul></div>
+    </div>
+    <div class="foot__fine">
+      <span>© <span id="yr"></span> <span data-s="brand_name"></span></span>
+      <span data-s="footer_note"></span>
+      <span>Made in India</span>
+    </div>
+  </div>
+</footer>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Shopping bag">
+  <div class="drawer__top">
+    <h2 id="drawerTitle">Your bag</h2>
+    <button class="x" id="closeCart" aria-label="Close">×</button>
+  </div>
+  <div class="drawer__body" id="cartBody"></div>
+  <div class="drawer__foot" id="cartFoot"></div>
+</aside>
+
+<script src="assets/app.js"></script>
+</body>
+</html>
