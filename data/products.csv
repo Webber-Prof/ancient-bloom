@@ -1,0 +1,17 @@
+id,name,category,price,size,options,status,ingredients,image,sort
+bloom gel,bloom gel,Face,300,30 gm,30gm|50gm(+150),available,aloevera,tanning_gel.png,1
+bloom gel,bloom gel,Face,300,50gm,50gm|100gm(+250),available,neem,neem_gel.jpg,2
+clay-mask,Clay Mask,Face,330,80 g,,available,Multani mitti|Neem|Rose,skin_whitening.jpg,3
+face pack,kumkumadi,face,350,50gm,50gm|100gm(300),available,multi herbs,kumkumadi.jpg,4
+night cream,night cream,face,350,25gm,,available,kojic acid,beauty.jpg,5
+lip-balm,beetroot,lips,180,8g,,available,,,
+conditioner,conditioner,hair,550,100ml,,available,,,
+shampoo,alevera shampoo,hair,550,200ml,200ml|500ml(+550),available,,,
+shampoo2,rice shampoo,hair,559,200ml,200ml|500ml(+550),available,,,
+,,,,,,available,,,
+,,,,,,available,,,
+,,,,,,available,,,
+,,,,,,available,,,
+,,,,,,available,,,
+,,,,,,available,,,
+,,,,,,available,,,
