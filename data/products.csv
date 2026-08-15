@@ -1,17 +1,31 @@
 id,name,category,price,size,options,status,ingredients,image,sort
 bloom gel,bloom gel,Face,300,30 gm,30gm|50gm(+150),available,aloevera,tanning_gel.png,1
-bloom gel,bloom gel,Face,300,50gm,50gm|100gm(+250),available,neem,neem_gel.jpg,2
+bloom gel,antiacne,Face,300,50gm,50gm|100gm(+250),available,neem,anti_acne.jpg,2
 clay-mask,Clay Mask,Face,330,80 g,,available,Multani mitti|Neem|Rose,skin_whitening.jpg,3
 face pack,kumkumadi,face,350,50gm,50gm|100gm(300),available,multi herbs,kumkumadi.jpg,4
 night cream,night cream,face,350,25gm,,available,kojic acid,beauty.jpg,5
-lip-balm,beetroot,lips,180,8g,,available,,,
-conditioner,conditioner,hair,550,100ml,,available,,,
-shampoo,alevera shampoo,hair,550,200ml,200ml|500ml(+550),available,,,
-shampoo2,rice shampoo,hair,559,200ml,200ml|500ml(+550),available,,,
-,,,,,,available,,,
-,,,,,,available,,,
-,,,,,,available,,,
-,,,,,,available,,,
-,,,,,,available,,,
-,,,,,,available,,,
-,,,,,,available,,,
+lip-balm,beetroot,lips,180,8g,,available,beetroot,beetroot lb.png,
+conditioner,conditioner,hair,550,100ml,,available,raw shea butter,conditioner.png,
+shampoo,alevera shampoo,hair,550,200ml,200ml|500ml(+550),available,neem aloevera,shampoo_aloevera.jpg,
+shampoo2,golden shampoo,hair,559,200ml,200ml|500ml(+550),available,shikakai,shampoo_shikakai.jpg,
+face wash,rose,face,280,100ml,100ml|200ml(+250,available,rose,rose_fw.png,
+face wash,chandan,face,300,100ml,100ml|200ml(+270),available,chandan,chandan_fw.jpg,
+face wash,kojic,face,300,60ml,60ml|100ml(+100),available,kojic acid,anti fw.jpg,
+face wash,rice,face,250,100ml,,available,riceextract,facewash.png,
+heal crack,coconut oil,foot,300,25g,,available,beeswax,foot_cream.jpg,
+bodywash ,aloevera,body,350,200ml,,available,aloevera,aloevera_BW.jpg,
+bodywash ,rose,body,350,200ml,,available,rose,rose_bw.png,
+facewash,kesar,face,350,100ml,,available,kesarhaldi,kesar_haldiFW.png,
+toner,rosewater,face,200,100ml,100ml|500ml(+400),available,rosepetals,rosewater.png,
+toner,ricewater,face,300,100ml,100ml|500ml(+400),available,riceextract,rice_mist.png,
+oil,eucalyptus,body,450,100ml,,available,peppermint,pain_oil.jpg,
+spray,rosemary,hair,300,100ml,,available,rosemary,Rosemaryspray.jpg,
+shampoo,amla reetha,hair,450,200ml,,available,amla reetha,shampoo1.jpg,
+facewash,orangepeel,face,280,100ml,,available,orange,vitamin c fw.png,
+facewash,dryfacewash,face,30,15g,15g|40g|80g(+30|+70},available,multi herbs,dry_facewashbig.jpg,
+soap,vitaminC,face|body,150,80g,,available,orangepeels,vitamin_c.png,
+soap,multisoaps,face|body,150,80g,detan|chandan|charcoal|manjistha|rice,available,mutlisoaps,soaps.jpg,
+soap,mulethi,face|body,150,80g,,available,mulethi,mulethisoap.jpg,
+soap,gram flour,face|body,180,80g,,available,gramflour,ubtansoap.jpg,
+soap,,face|body,,80g,,available,,,
+soap,,face|body,,80g,,available,,,
